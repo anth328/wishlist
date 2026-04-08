@@ -3,8 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <title>Wishlist</title>
+    <link rel="stylesheet" th:href="@{/style.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
+<div th:replace="navbar :: navbar"></div>
 <h1>Products:</h1>
 <div th:each="product : ${products}">
     <div>Id: <span th:text="${product.id}"></span></div>
@@ -15,5 +18,18 @@
     <div>Image Url: <span th:text="${product.image_url}"></span></div>
     <div>Created at: <span th:text="${product.created_at}"></span></div>
 </div>
+<script>
+    function toggleMenu() {
+        const nav = document.getElementById("navLinks");
+
+        console.log("CLICKED"); // 👈 DEBUG (check console)
+
+        if (nav) {
+            nav.classList.toggle("active");
+        } else {
+            console.error("navLinks not found");
+        }
+    }
+</script>
 </body>
 </html>
