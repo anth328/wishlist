@@ -3,14 +3,21 @@ package dk.ek.wishlist.models;
 public class Product {
     private int id;
     private String name;
-    private int price;
     private String description;
+    private int price;
+    private String url;
+    private String image_url;
+    private String created_at;
 
-    public Product(int i, String n, int p, String d) {
+    public Product(int i, String n, String d, int p, String u, String iU, String cA) {
         id = i;
         name = n;
-        price = p;
         description = d;
+        price = p;
+        url = u;
+        image_url = iU;
+        created_at = cA;
+
     }
 
     public int getId() {
@@ -21,12 +28,24 @@ public class Product {
         return name;
     }
 
+    public String getDescription() {
+        return description;
+    }
+
     public int getPrice() {
         return price;
     }
 
-    public String getDescription() {
-        return description;
+    public String getUrl() {
+        return url;
+    }
+
+    public String getImage_url() {
+        return image_url;
+    }
+
+    public String getCreated_at() {
+        return created_at;
     }
 
     public void setId(int id) {
@@ -37,12 +56,24 @@ public class Product {
         this.name = name;
     }
 
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
     public void setPrice(int price) {
         this.price = price;
     }
 
-    public void setDescription(String description) {
-        this.description = description;
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public void setImage_url(String image_url) {
+        this.image_url = image_url;
+    }
+
+    public void setCreated_at(String created_at) {
+        this.created_at = created_at;
     }
 
     @Override
@@ -50,8 +81,11 @@ public class Product {
         return "Product{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", price=" + price +
                 ", description='" + description + '\'' +
+                ", price=" + price +
+                ", url='" + url + '\'' +
+                ", image_url='" + image_url + '\'' +
+                ", created_at='" + created_at + '\'' +
                 '}';
     }
 }

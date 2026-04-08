@@ -27,7 +27,7 @@ public class ProductRepository {
             ResultSet resultSet = statement.executeQuery(sql);
 
             while (resultSet.next()) {
-                Product product = new Product(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getInt("price"), resultSet.getString("description"));
+                Product product = new Product(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("description"), resultSet.getInt("price"), resultSet.getString("url"), resultSet.getString("image_url"), resultSet.getString("created_at"));
                 products.add(product);
             }
 
