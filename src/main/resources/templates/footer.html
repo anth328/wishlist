@@ -1,0 +1,51 @@
+<footer th:fragment="footer" class="footer">
+    <div class="footer-container">
+
+        <!-- Logo + About -->
+        <div class="footer-section">
+            <h2 class="footer-logo">🎁 Wishlist</h2>
+            <p>
+                Create wishlists, share them with friends, and reserve gifts easily.
+                Never miss the perfect present again.
+            </p>
+        </div>
+
+        <!-- Navigation -->
+        <div class="footer-section">
+            <h3>Navigation</h3>
+            <ul>
+                <li><a th:href="@{/}">Home</a></li>
+                <li><a th:href="@{/wishlists}">Wishlists</a></li>
+                <li><a th:href="@{/products}">Products</a></li>
+                <li><a th:href="@{/login}">Login</a></li>
+                <li><a th:href="@{/register}">Register</a></li>
+            </ul>
+        </div>
+
+        <!-- Info -->
+        <div class="footer-section">
+            <h3>About</h3>
+            <ul>
+                <li><a href="#">How it works</a></li>
+                <li><a href="#">Privacy Policy</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+
+        <!-- Social -->
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+            <div class="socials">
+                <a href="#" title="GitHub">🐙</a>
+                <a href="#" title="LinkedIn">💼</a>
+                <a href="#" title="Instagram">📸</a>
+                <a href="#" title="Facebook">📘</a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Wishlist App. All rights reserved.</p>
+    </div>
+</footer>
