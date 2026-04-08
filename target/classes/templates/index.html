@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Wishlist</title>
+</head>
+<body>
+<h1>Products:</h1>
+<div th:each="product : ${products}">
+    <div>Id: <span th:text="${product.id}"></span></div>
+    <div>Name: <span th:text="${product.name}"></span></div>
+    <div>Price: <span th:text="${product.price}"></span></div>
+    <div>Description: <span th:text="${product.description}"></span></div>
+</div>
+</body>
+</html>
