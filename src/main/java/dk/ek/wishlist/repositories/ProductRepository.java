@@ -1,7 +1,6 @@
 package dk.ek.wishlist.repositories;
 
 import dk.ek.wishlist.models.Product;
-import org.apache.catalina.User;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Repository;
 
@@ -11,24 +10,29 @@ import java.util.List;
 
 @Repository
 public class ProductRepository {
-    @Value("${spring.datasource.url}")
-    private String dbUrl;
-    @Value("${spring.datasource.username}")
-    private String username;
-    @Value("${spring.datasource.password}")
-    private String password;
+    @Value("${spring.datasource.url}") private String dbUrl;
+    @Value("${spring.datasource.username}") private String username;
+    @Value("${spring.datasource.password}") private String password;
 
     public List<Product> findAll() {
         List<Product> products = new ArrayList<>();
         String sql = "SELECT * FROM products";
 
-        try (Connection connection = DriverManager.getConnection(dbUrl, username, password)) {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(sql);
+        try (Connection conn = DriverManager.getConnection(dbUrl, username, password);
+             Statement stmt = conn.createStatement();
+             ResultSet rs = stmt.executeQuery(sql)) {
 
-            while (resultSet.next()) {
-                Product product = new Product(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("description"), resultSet.getInt("price"), resultSet.getString("url"), resultSet.getString("image_url"), resultSet.getString("created_at"));
-                products.add(product);
+            while (rs.next()) {
+                Product p = new Product(
+                        rs.getInt("id"),
+                        rs.getString("name"),
+                        rs.getString("description"),
+                        rs.getInt("price"),
+                        rs.getString("url"),
+                        rs.getString("image_url"),
+                        rs.getString("created_at")
+                );
+                products.add(p);
             }
 
         } catch (SQLException e) {

@@ -2,14 +2,15 @@ package dk.ek.wishlist.controllers;
 
 import dk.ek.wishlist.models.Product;
 import dk.ek.wishlist.services.IndexService;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class IndexController {
     private final IndexService service;
 
@@ -18,8 +19,12 @@ public class IndexController {
     }
 
     @GetMapping("/")
-    public ModelAndView index() {
+    public ModelAndView index(HttpSession session) {
         ModelAndView mav = new ModelAndView("index");
+
+        Object user = session.getAttribute("user");
+        mav.addObject("user", user);
+
         return mav;
     }
 
