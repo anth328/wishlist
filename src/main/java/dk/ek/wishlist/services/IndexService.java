@@ -17,4 +17,13 @@ public class IndexService {
     public List<Product> getAllProducts() {
         return repo.findAll();
     }
+
+    public Product getProductMatch(int id) {
+        for (Product p : repo.findAll()) {
+            if (p.getId()==id) {
+                return p;
+            }
+        }
+        return null;
+    }
 }
