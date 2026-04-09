@@ -20,6 +20,12 @@ public class IndexController {
     @GetMapping("/")
     public ModelAndView index() {
         ModelAndView mav = new ModelAndView("index");
+        return mav;
+    }
+
+    @GetMapping("/products")
+    public ModelAndView products() {
+        ModelAndView mav = new ModelAndView("products");
         List<Product> products = service.getAllProducts();
         mav.addObject("products", products);
         return mav;
