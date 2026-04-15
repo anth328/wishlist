@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<link rel="stylesheet" th:href="@{/style.css}">
+<head>
+    <meta charset="UTF-8">
+    <title>Create</title>
+</head>
+<body>
+<h2>Create Product</h2>
+
+<form th:action="@{/products/create}" th:object="${product}" method="post">
+
+    <label>Name:</label>
+    <input type="text" th:field="*{name}" /><br><br>
+
+    <label>Description:</label>
+    <input type="text" th:field="*{description}" /><br><br>
+
+    <label>Price:</label>
+    <input type="number" th:field="*{price}" /><br><br>
+
+    <label>URL:</label>
+    <input type="text" th:field="*{url}" /><br><br>
+
+    <label>Image URL:</label>
+    <input type="text" th:field="*{image_url}" /><br><br>
+
+    <button type="submit">Create</button>
+
+</form>
+</body>
+</html>

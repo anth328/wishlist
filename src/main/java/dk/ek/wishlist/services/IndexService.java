@@ -4,6 +4,8 @@ import dk.ek.wishlist.models.Product;
 import dk.ek.wishlist.repositories.ProductRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 
 @Service
@@ -25,5 +27,20 @@ public class IndexService {
             }
         }
         return null;
+    }
+
+    public Product createProduct(String name, String description, int price,
+                                 String url, String iurl) {
+
+        LocalDate localDate = LocalDate.now();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd LLLL yyyy");
+        String fs = localDate.format(formatter);
+
+        int count = 1;
+        for (Product p : repo.findAll()) {
+            count++;
+        }
+        Product p = new Product(count, name, description, price, url, iurl, fs);
+        return p;
     }
 }
