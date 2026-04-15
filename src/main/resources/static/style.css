@@ -321,6 +321,22 @@ body {
     border-radius: 10px;
 }
 
+.divider {
+    display: flex;
+    height: 1px;
+    width: 100%;
+    background-color: lightgray;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.create-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #00D4FFFF;
+    width: 20%;
+}
+
 /* =========================
    GENERAL SECTION STYLE
 ========================= */
@@ -616,13 +632,6 @@ body {
 
 .loginForm input {
     margin-bottom: 20px;
-
- /*
-ITEM CSS
- */
-
-. item-container {
-}
 
 /* ITEM CSS */
 .item-container {
