@@ -41,4 +41,22 @@ public class ProductRepository {
 
         return products;
     }
+
+    public void addProduct(Product product) {
+        String sql = "INSERT INTO products (id, name, description, price, url, image_url) VALUES (?,?,?,?,?,?)";
+
+        try (Connection conn = DriverManager.getConnection(dbUrl,username,password)) {
+            PreparedStatement ps = conn.prepareStatement(sql);
+            ps.setInt(1, product.getId());
+            ps.setString(2, product.getName());
+            ps.setString(3, product.getDescription());
+            ps.setInt(4, product.getPrice());
+            ps.setString(5, product.getUrl());
+            ps.setString(6, product.getImage_url());
+            ps.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
 }

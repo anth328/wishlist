@@ -9,6 +9,8 @@ public class Product {
     private String image_url;
     private String created_at;
 
+    public Product(){}
+
     public Product(int i, String n, String d, int p, String u, String iU, String cA) {
         id = i;
         name = n;
@@ -17,7 +19,6 @@ public class Product {
         url = u;
         image_url = iU;
         created_at = cA;
-
     }
 
     public int getId() {

@@ -590,6 +590,7 @@ body {
         width: 100%;
     }
 }
+
 /* RESERVED ITEM */
 .reserved-item {
     background: #f1f1f1;
@@ -615,11 +616,16 @@ body {
 
 .loginForm input {
     margin-bottom: 20px;
-= = = = = = = /*
+
+ /*
 ITEM CSS
  */
 
 . item-container {
+}
+
+/* ITEM CSS */
+.item-container {
     display: flex;
     align-items: center;
     padding-left: 1000px;
@@ -637,4 +643,9 @@ ITEM CSS
         justify-content: center;
         align-items: flex-end;
     }
+}
+.class-description {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
 }
